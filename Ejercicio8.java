@@ -1,5 +1,7 @@
 package ejercicio8;
 import java.util.Scanner;
+/*Dada la medida de cada uno de los tres ángulos de un triángulo
+determinar e informar mediante un mensaje si pertenecen o no a un triángulo rectángulo.*/
 public class Ejercicio8 {
     public static void main(String[] args) {
       Scanner entrada = new Scanner(System.in);
