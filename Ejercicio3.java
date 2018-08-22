@@ -1,7 +1,7 @@
 package ejercicio3;
 import java.text.DecimalFormat;
 import java.util.Scanner;
-
+/*Dado el importe bruto de una factura calcular el resultado de bonificarlo (descuento) */
 public class Ejercicio3 {
     public static void main(String[] args) {
         
