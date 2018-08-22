@@ -1,5 +1,7 @@
 package ejercicio7;
 import java.util.Scanner;
+
+/*Dado un número determinar si es positivo o negativo.*/
 public class Ejercicio7 {
     public static void main(String[] args) {
         Scanner valor = new Scanner(System.in);
