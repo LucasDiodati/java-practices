@@ -1,7 +1,9 @@
 package ejercicio4;
 import java.util.Scanner;
 import java.text.DecimalFormat;
-
+/*Al monto obtenido calcularle el IVA (21%). 
+Finalmente informar: el importe bruto, el valor de la bonificación, el importe bruto bonificado,
+el monto correspondiente al IVA y el importe neto resultante.*/
 public class Ejercicio4 {
     public static void main(String[] args) {
         
