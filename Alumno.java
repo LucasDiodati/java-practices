@@ -7,4 +7,5 @@ public class Alumno {
     double parcial4;
     double parcial5;
     double parcial6;
+    double promedio;
 }
