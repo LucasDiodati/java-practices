@@ -26,6 +26,5 @@ public class Pelicula {
     
     public Fecha getFecha(){
     return this.fecha;
-    }
-    
+    }    
 }

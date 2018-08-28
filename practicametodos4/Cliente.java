@@ -35,7 +35,5 @@ public class Cliente {
     
     public int getEdad(){
     return this.edad;
-    }
-    
-    
+    }   
 }
