@@ -2,7 +2,7 @@ package practicametodos4;
 public class Practicametodos4 {
     public static void main(String[] args) {
         
-        Fecha hoy = new Fecha();       
+        Fecha hoy = new Fecha();
         hoy.setFecha(28, 8, 2018);
         
         Fecha ayer = new Fecha();
@@ -33,6 +33,17 @@ public class Practicametodos4 {
         }
         
         
+        
+        //hacer comparacion de fecha (ver clase fecha get & set)
+        /*
+        if(humano1.getFecha()>humano2.getEdad()){
+        System.out.println("El primer cliente es mayor");
+        }else if(humano1.getEdad()<humano2.getEdad()){
+        System.out.println("El segundo cliente es mayor");
+        } else {
+        System.out.println("Los clientes tienen la misma edad");
+        }
+        */
         
     }
 }

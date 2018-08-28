@@ -10,9 +10,17 @@ public class Fecha {
     this.mes = m;
     this.año = a;
     }
-    
-    public Fecha getFecha(){
-    return this.fecha;
+
+    public int getDia(){
+    return this.dia;
     }
+    public int getMes(){
+    return this.mes;
+    }
+    public int getAño(){
+    return this.año;
+    }
+    
+   
     
 }
