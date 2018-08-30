@@ -1,4 +1,4 @@
-package practicametodos4;
+package practicaConstructores;
 
 public class Cliente {
     private int codigoCliente;

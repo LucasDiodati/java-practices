@@ -1,9 +1,9 @@
-package practicametodos4;
+package practicaConstructores;
+
 public class Fecha {
     private int dia;
     private int mes;
     private int año;
-    private Fecha fecha;
     
     public void setDia(int d){
     this.dia = d;

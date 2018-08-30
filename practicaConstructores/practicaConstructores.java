@@ -1,7 +1,8 @@
-package practicametodos4;
-public class Practicametodos4 {
+package practicaConstructores;
+public class practicaConstructores {
     public static void main(String[] args) {
         
+        //Instancio un objeto fecha pasando parametros por los metodos publicos 'set'
         Fecha hoy = new Fecha();
         hoy.setDia(28);
         hoy.setMes(8);
@@ -12,11 +13,14 @@ public class Practicametodos4 {
         ayer.setMes(8);
         ayer.setAño(2018);
         
-        Pelicula peli1 = new Pelicula();
-        peli1.setCodigo(7);
-        peli1.setNombre("La llamada");
+        // Instancio un objeto pasando los parametros en el constructor
+        Pelicula peli1 = new Pelicula(45,"La llamada", hoy);
+        Pelicula peli3 = new Pelicula(15,"The shining",ayer);
         
-           
+        // Instancio un objeto sin parametros
+        // Este llama al que no tiene parametros, ese llama al de dos parametros, y ese otro llama al metodo que muestra el nombre
+        Pelicula peli2 = new Pelicula();
+        
         Cliente humano1 = new Cliente();
         humano1.setCodigoCliente(45);
         humano1.setNombre("Lucas");
