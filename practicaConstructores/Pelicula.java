@@ -5,6 +5,7 @@ public class Pelicula {
     private int codigoPelicula;
     private String nombrePelicula;
     private Fecha fecha;
+
     
     //declaracion de metodo referenciando al tipo de dato del constructor
     public void mostrarNombre(String nomb){
@@ -17,6 +18,8 @@ public class Pelicula {
      this.codigoPelicula = cod;
      this.nombrePelicula = nom;
      this.fecha = alq;
+     
+     
     //llamada al metodo 
     mostrarNombre(nom);
     }

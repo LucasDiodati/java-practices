@@ -21,6 +21,10 @@ public class practicaConstructores {
         // Este llama al que no tiene parametros, ese llama al de dos parametros, y ese otro llama al metodo que muestra el nombre
         Pelicula peli2 = new Pelicula();
         
+        // Instancio desde un constructor que llama a una funcion de validacion para la contraseña
+        Cliente cli1 = new Cliente(43,"Juan",36,"asd");
+        
+        
         Cliente humano1 = new Cliente();
         humano1.setCodigoCliente(45);
         humano1.setNombre("Lucas");
