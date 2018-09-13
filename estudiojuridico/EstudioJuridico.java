@@ -1,7 +1,11 @@
 package estudiojuridico;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class EstudioJuridico {
+    // Pasa como variable de clase para darle visibilidad fuera del main
+    static ArrayList<Abogado>  ListAbog;
+    
     public static void main(String[] args) {
         // Causas[];
         Causa causa1 = new Causa();
@@ -100,7 +104,7 @@ public class EstudioJuridico {
         Abogado abogado2 = new Abogado();
         abogado2.setCodAbogado(45);
         abogado2.setCantAbiertas(2);
-        abogado2.setFuero("Penal");
+        abogado2.setFuero("Laboral");
         abogado2.setApellidoNombre("Luis Rodriguez");
         abogado2.setCausasAbogado(ListCausaAbog2);
         abogado2.setDomicilio("Andrade 1201");
@@ -124,7 +128,7 @@ public class EstudioJuridico {
         Abogado abogado4 = new Abogado();
         abogado4.setCodAbogado(43);
         abogado4.setCantAbiertas(1);
-        abogado4.setFuero("Laboral");
+        abogado4.setFuero("Civil");
         abogado4.setApellidoNombre("Marcos Juarez");
         abogado4.setCausasAbogado(ListCausaAbog4); // asignar a su propia lista
         abogado4.setDomicilio("San Luis 55");
@@ -135,25 +139,76 @@ public class EstudioJuridico {
         
        
         //Instancio un objeto de la clase ArrayList<> donde meto objetos "Abogado"
-        ArrayList<Abogado> ListAbog = new ArrayList<Abogado>();
+        ListAbog = new ArrayList<Abogado>();
         //Agrego los objetos "Abogado" al arrayList
         ListAbog.add(abogado1);
         ListAbog.add(abogado2);
         ListAbog.add(abogado3);
         ListAbog.add(abogado4);
-        
-        
-        // Uso el metodo Get() de arraylist y lo guardo en una variable tipo Abogado
-        /*Abogado abConsultado = ListAbog.get(0);
-        //Imprimo desde la nueva variable local
-        System.out.println(abConsultado.getFuero());
-        // Imprimo directamente desde el arraylist
-        System.out.println(ListAbog.get(1).getFuero());
-        
+        //Inicializo el valor de ingreso fuera del bucle
+        int num1 = 0;       
+        JOptionPane.showMessageDialog(null,">> Bienvenido al sistema de Estudio Juridico <<");
+        do{
+String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una causa"
+                + "                         \n*Ingrese 2 si quiere cargar un nuevo abogado"
+                + "                         \n*Ingrese 3 si quiere cerrar una causa"
+                + "                         \n*Ingrese 4 si quiere efectuar la liquidación de abogados"
+                + "                         \n*Ingrese 0 si quiere salir del programa");
+        //casteo a int el valor ingresado
+        num1 = Integer.parseInt(entrada);
+        switch(num1){
+            case 1:
+            abrirCausa();
+            break;
+            case 2:
+            // cargarAbogado();
+            break;
+            case 3:
+            // cerrarCausa();
+            break;
+            case 4:
+            // liquidarAbogados();
+            break;
+        }
+            }while(num1 != 0);
 
-        
-        System.out.println(abogado1.getCausasAbogado().get(0).getNroCausa());
-        */
-        
     }
+    
+    // Todo esto afuera del main 
+    
+    public static void abrirCausa(){
+    String fuero = JOptionPane.showInputDialog("Ingrese el fuero:");
+    // Creo una coleccion para validar el fuero
+    ArrayList<Abogado> abogadosConsultados = new ArrayList<Abogado>();
+    // Consulto la cantidad total de abogados para iterar la cantidad total en un for
+    for(int i = 0; i< ListAbog.size();i++){
+    // ListAbog.get(i) = traer el objeto iterado de la lista general -- pido el fuero de ese abogado -- Lo comparo con el fuero ingresado
+    if(ListAbog.get(i).getFuero().equals(fuero)){
+    // Agrega el abogado iterado a la lista de abogados consultados
+    abogadosConsultados.add(ListAbog.get(i));
+    }
+    }
+    // Inicializo la posicion donde encuentro al abogado, el maximo de causas que pueden tener y el abogado iterado
+    int posicion = 0;
+    int maxCausas = 100;
+    Abogado abogadoX;
+    // Consulto la cantidad de abogados de la nueva coleccion para iterarlos
+    for(int i = 0; i < abogadosConsultados.size();i++){
+    // si el objeto iterado (lo de get(i)) tiene una cantidad de causas abiertas mayor 
+    if(abogadosConsultados.get(i).getCantAbiertas()<maxCausas){
+    // asigno a maxCausas, la cantidad de causas del abogado iterado
+    maxCausas = abogadosConsultados.get(i).getCantAbiertas();
+    // asigno la posicion a i para que se guarde en algun indice en la lista de abogados
+    posicion = i;
+    }
+    }
+    // asigno la posicion (lo del if de arriba) a un "abogadoX" para que se guarde momentaneamente y los pueda comparar
+    abogadoX = abogadosConsultados.get(posicion);
+    String abogadoXNombre = abogadoX.getApellidoNombre();
+   
+    JOptionPane.showMessageDialog(null,"Abogado seleccionado para la causa: "+abogadoXNombre);
+    
+    };
+    
+    
 }
