@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 public class EstudioJuridico {
     // Pasa como variable de clase para darle visibilidad fuera del main
     static ArrayList<Abogado>  ListAbog;
+    static ArrayList<Abogado> AbogPorcentaje;
+    static ArrayList<Abogado> AbogFijo;
     
     public static void main(String[] args) {
         // Causas[];
@@ -117,10 +119,10 @@ public class EstudioJuridico {
         abogado3.setCodAbogado(12);
         abogado3.setCantAbiertas(2);
         abogado3.setFuero("Comercial");
-        abogado3.setApellidoNombre("Agustina Forholtz");
+        abogado3.setApellidoNombre("Agustina Ricci");
         abogado3.setCausasAbogado(ListCausaAbog3);
         abogado3.setDomicilio("Entre rios 1444");
-        abogado3.setEmail("agusf@yahoo.com");
+        abogado3.setEmail("agusr@yahoo.com");
         abogado3.setNroDocumento(36887523);
         abogado3.setTipoDocumento("DNI");
         abogado3.setTotalCausas(2);
@@ -138,15 +140,26 @@ public class EstudioJuridico {
         abogado4.setTotalCausas(1);        
         
        
-        //Instancio un objeto de la clase ArrayList<> donde meto objetos "Abogado"
+        //Instancio un objeto de la clase ArrayList<> donde meto todos los objetos "Abogado"
         ListAbog = new ArrayList<Abogado>();
         //Agrego los objetos "Abogado" al arrayList
         ListAbog.add(abogado1);
         ListAbog.add(abogado2);
         ListAbog.add(abogado3);
         ListAbog.add(abogado4);
+        
+        AbogPorcentaje = new ArrayList<Abogado>();
+        //Pongo en un arraylist dos abogados que cobran porcentaje
+        AbogPorcentaje.add(abogado3);
+        AbogPorcentaje.add(abogado4);
+        
+        AbogFijo = new ArrayList<Abogado>();
+        //Pongo en otro arraylist dos abogados que cobran un monto fijo
+        AbogFijo.add(abogado1);
+        AbogFijo.add(abogado2);
+        
         //Inicializo el valor de ingreso fuera del bucle
-        int num1 = 0;       
+        int num1;       
         JOptionPane.showMessageDialog(null,">> Bienvenido al sistema de Estudio Juridico <<");
         do{
 String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una causa"
