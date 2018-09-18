@@ -6,6 +6,7 @@ public class Causa {
    private String demandante;
    private String demandado;
    private String motivo;
+   private String fuero;   
    private int nroCausa;
 
 public Sentencia getSent() {
@@ -63,4 +64,18 @@ public Sentencia getSent() {
     public void setNroCausa(int nroCausa) {
         this.nroCausa = nroCausa;
     }   
+
+    /**
+     * @return the fuero
+     */
+    public String getFuero() {
+        return fuero;
+    }
+
+    /**
+     * @param fuero the fuero to set
+     */
+    public void setFuero(String fuero) {
+        this.fuero = fuero;
+    }
 }

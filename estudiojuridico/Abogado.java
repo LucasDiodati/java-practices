@@ -12,7 +12,7 @@ public class Abogado {
     private ArrayList<Causa> causasAbogado = new ArrayList<Causa>();
     private int totalCausas;
     private int cantAbiertas;
-
+    
     public int getCodAbogado() {
         return codAbogado;
     }

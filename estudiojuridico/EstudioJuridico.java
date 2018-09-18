@@ -5,9 +5,7 @@ import javax.swing.JOptionPane;
 public class EstudioJuridico {
     // Pasa como variable de clase para darle visibilidad fuera del main
     static ArrayList<Abogado>  ListAbog;
-    static ArrayList<Abogado> AbogPorcentaje;
-    static ArrayList<Abogado> AbogFijo;
-    
+
     public static void main(String[] args) {
         // Causas[];
         Causa causa1 = new Causa();
@@ -17,6 +15,7 @@ public class EstudioJuridico {
         causa1.setFechaIni("13/07/2018");
         causa1.setJuzgado("Federal 1ero");
         causa1.setMotivo("Accidente de transito");
+        causa1.setFuero("Civil");
         causa1.setSent(null);
         //causa2
         Causa causa2 = new Causa();
@@ -26,6 +25,7 @@ public class EstudioJuridico {
         causa2.setFechaIni("11/05/2018");
         causa2.setJuzgado("Provincial 15ero");
         causa2.setMotivo("Despidos");
+        causa2.setFuero("Penal");
         causa2.setSent(null);
         //causa3
         Causa causa3 = new Causa();
@@ -35,6 +35,7 @@ public class EstudioJuridico {
         causa3.setFechaIni("11/05/2015");
         causa3.setJuzgado("Provincial 15ero");
         causa3.setMotivo("Pago de haberes");
+        causa3.setFuero("Civil");
         causa3.setSent(null);
         //causa4
         Causa causa4 = new Causa();
@@ -44,6 +45,7 @@ public class EstudioJuridico {
         causa4.setFechaIni("07/05/2018");
         causa4.setJuzgado("Provincial 15ero");
         causa4.setMotivo("Divorcio");
+        causa1.setFuero("Laboral");
         causa4.setSent(null);
         //causa5
         Causa causa5 = new Causa();
@@ -52,6 +54,7 @@ public class EstudioJuridico {
         causa5.setDemandante("Fernandez");
         causa5.setFechaIni("11/05/2017");
         causa5.setJuzgado("Federal 1ero");
+        causa1.setFuero("Penal");
         causa5.setMotivo("Estafa");
         causa5.setSent(null);
         //causa6
@@ -61,6 +64,7 @@ public class EstudioJuridico {
         causa6.setDemandante("Poe");
         causa6.setFechaIni("14/02/2018");
         causa6.setJuzgado("Provincial 15ero");
+        causa1.setFuero("Civil");
         causa6.setMotivo("Responsabilidad parental");
         causa6.setSent(null); 
         
@@ -73,7 +77,6 @@ public class EstudioJuridico {
         ListCausasGeneral.add(causa5);
         ListCausasGeneral.add(causa6);
         
-
         // Lista de causas para el abogado1
         ArrayList<Causa> ListCausaAbog1 = new ArrayList<Causa>();
         ListCausaAbog1.add(causa1);
@@ -90,8 +93,8 @@ public class EstudioJuridico {
         ListCausaAbog4.add(causa6);    
         
         
-        // Instancio un par de abogados
-        Abogado abogado1 = new Abogado();
+        // Instancio un par de abogados directamente en la subclase
+        Abogado abogado1 = new Fijo();
         abogado1.setCodAbogado(7122);
         abogado1.setCantAbiertas(1);
         abogado1.setFuero("Laboral");
@@ -103,10 +106,10 @@ public class EstudioJuridico {
         abogado1.setTotalCausas(1);
         abogado1.setCausasAbogado(ListCausaAbog1);
         //Abogado2
-        Abogado abogado2 = new Abogado();
+        Abogado abogado2 = new Porcentaje();
         abogado2.setCodAbogado(45);
         abogado2.setCantAbiertas(2);
-        abogado2.setFuero("Laboral");
+        abogado2.setFuero("Penal");
         abogado2.setApellidoNombre("Luis Rodriguez");
         abogado2.setCausasAbogado(ListCausaAbog2);
         abogado2.setDomicilio("Andrade 1201");
@@ -115,10 +118,10 @@ public class EstudioJuridico {
         abogado2.setTipoDocumento("DNI");
         abogado2.setTotalCausas(2);
         //Abogado3
-        Abogado abogado3 = new Abogado();
+        Abogado abogado3 = new Porcentaje();
         abogado3.setCodAbogado(12);
         abogado3.setCantAbiertas(2);
-        abogado3.setFuero("Comercial");
+        abogado3.setFuero("Civil");
         abogado3.setApellidoNombre("Agustina Ricci");
         abogado3.setCausasAbogado(ListCausaAbog3);
         abogado3.setDomicilio("Entre rios 1444");
@@ -127,7 +130,7 @@ public class EstudioJuridico {
         abogado3.setTipoDocumento("DNI");
         abogado3.setTotalCausas(2);
         //Abogado4
-        Abogado abogado4 = new Abogado();
+        Abogado abogado4 = new Fijo();
         abogado4.setCodAbogado(43);
         abogado4.setCantAbiertas(1);
         abogado4.setFuero("Civil");
@@ -139,7 +142,6 @@ public class EstudioJuridico {
         abogado4.setTipoDocumento("LC");
         abogado4.setTotalCausas(1);        
         
-       
         //Instancio un objeto de la clase ArrayList<> donde meto todos los objetos "Abogado"
         ListAbog = new ArrayList<Abogado>();
         //Agrego los objetos "Abogado" al arrayList
@@ -148,15 +150,7 @@ public class EstudioJuridico {
         ListAbog.add(abogado3);
         ListAbog.add(abogado4);
         
-        AbogPorcentaje = new ArrayList<Abogado>();
-        //Pongo en un arraylist dos abogados que cobran porcentaje
-        AbogPorcentaje.add(abogado3);
-        AbogPorcentaje.add(abogado4);
         
-        AbogFijo = new ArrayList<Abogado>();
-        //Pongo en otro arraylist dos abogados que cobran un monto fijo
-        AbogFijo.add(abogado1);
-        AbogFijo.add(abogado2);
         
         //Inicializo el valor de ingreso fuera del bucle
         int num1;       
@@ -189,9 +183,62 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
     
     // Todo esto afuera del main 
     
+    public static Abogado buscarAbogado(String fuer){
+    // Crea una lista de abogados para iterar los abogados de la lista general (el atriburo fuero) contra el que se ingreso
+    ArrayList<Abogado> ListAb = new ArrayList<Abogado>();
+    Abogado abo1 = new Abogado();
+    int max = 200;
+    //
+    for(int i=0;i<ListAbog.size();i++){
+    if(ListAbog.get(i).getFuero().equals(fuer)){
+    ListAb.add(ListAbog.get(i));
+    }
+    }
+    for(int i=0;i<ListAb.size();i++){
+     if(ListAb.get(i).getCantAbiertas()<max){
+    abo1 = ListAb.get(i);
+    max = ListAb.get(i).getCantAbiertas();
+        }
+    }
+    
+    JOptionPane.showMessageDialog(null,abo1.getCantAbiertas());
+    /*
+    for(int i=0;i<ListAb.size();i++){
+    if(ListAb.get(i).getCantAbiertas()<max){
+    abo1 = ListAb.get(i);
+    max = ListAb.get(i).getCantAbiertas();
+        }
+    }
+    
+    String aboNom = abo1.getApellidoNombre();
+    JOptionPane.showMessageDialog(null,"Abogado seleccionado para la causa: "+aboNom);
+    */
+    return abo1;
+    };
+    
     public static void abrirCausa(){
+    //Instancio una nueva causa
+    Causa caus1 = new Causa();
     String fuero = JOptionPane.showInputDialog("Ingrese el fuero:");
-    // Creo una coleccion para validar el fuero
+    // Lo guardo en la variable temporal
+    caus1.setFuero(fuero);
+    // llamo a buscar abogado pasandole el fuero como parametro
+    Abogado asig = buscarAbogado(caus1.getFuero());// asig es el abogado con mero causa
+    asig.getCausasAbogado().add(caus1);
+    
+    
+    
+    
+    
+    
+   
+    
+
+
+/*
+
+
+// Creo una coleccion para validar el fuero
     ArrayList<Abogado> abogadosConsultados = new ArrayList<Abogado>();
     // Consulto la cantidad total de abogados para iterar la cantidad total en un for
     for(int i = 0; i< ListAbog.size();i++){
@@ -218,9 +265,10 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
     // asigno la posicion (lo del if de arriba) a un "abogadoX" para que se guarde momentaneamente y los pueda comparar
     abogadoX = abogadosConsultados.get(posicion);
     String abogadoXNombre = abogadoX.getApellidoNombre();
-   
-    JOptionPane.showMessageDialog(null,"Abogado seleccionado para la causa: "+abogadoXNombre);
+    String abogadoXFuero = abogadoX.getFuero();
     
+    JOptionPane.showMessageDialog(null,"Abogado seleccionado para la causa: "+abogadoXNombre+"\n Fuero: "+abogadoXFuero);
+    */
     };
     
     
