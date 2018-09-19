@@ -184,91 +184,42 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
     // Todo esto afuera del main 
     
     public static Abogado buscarAbogado(String fuer){
-    // Crea una lista de abogados para iterar los abogados de la lista general (el atriburo fuero) contra el que se ingreso
+    // Crea una lista temporal de abogados para iterar los abogados de la lista general (el fuero) contra el que viene por parametro
     ArrayList<Abogado> ListAb = new ArrayList<Abogado>();
     Abogado abo1 = new Abogado();
     int max = 200;
-    //
+    // for itera por la cantidad de abogados (con size())
+    // if compara los fueros y si coinciden, guarda los abogados en el nuevo ArrayList<>
     for(int i=0;i<ListAbog.size();i++){
     if(ListAbog.get(i).getFuero().equals(fuer)){
     ListAb.add(ListAbog.get(i));
     }
     }
+    //en otro for itero la lista temporal de abogados colectados (todos los que tengan el fuero ingresado)
+    // el if compara la cantidad de causas abiertas, guardando el valor en "max" y comparando 1 contra 1 (bubble sort?)
     for(int i=0;i<ListAb.size();i++){
      if(ListAb.get(i).getCantAbiertas()<max){
     abo1 = ListAb.get(i);
     max = ListAb.get(i).getCantAbiertas();
         }
     }
-    
-    JOptionPane.showMessageDialog(null,abo1.getCantAbiertas());
-    /*
-    for(int i=0;i<ListAb.size();i++){
-    if(ListAb.get(i).getCantAbiertas()<max){
-    abo1 = ListAb.get(i);
-    max = ListAb.get(i).getCantAbiertas();
-        }
-    }
-    
+    // guardamos el nombre del abogado seleccionado y lo muestro
     String aboNom = abo1.getApellidoNombre();
     JOptionPane.showMessageDialog(null,"Abogado seleccionado para la causa: "+aboNom);
-    */
     return abo1;
     };
     
     public static void abrirCausa(){
     //Instancio una nueva causa
     Causa caus1 = new Causa();
+    // Guardo el input en una variable que voy a usar para buscar abogado
     String fuero = JOptionPane.showInputDialog("Ingrese el fuero:");
-    // Lo guardo en la variable temporal
+    // Lo seteo como atributo del objeto instanciado
     caus1.setFuero(fuero);
     // llamo a buscar abogado pasandole el fuero como parametro
-    Abogado asig = buscarAbogado(caus1.getFuero());// asig es el abogado con mero causa
+    Abogado asig = buscarAbogado(caus1.getFuero());// asig es el abogado con menos causas
+    // Le cargo la causa a la lista de causas del este abogado
     asig.getCausasAbogado().add(caus1);
-    
-    
-    
-    
-    
-    
-   
-    
-
-
-/*
-
-
-// Creo una coleccion para validar el fuero
-    ArrayList<Abogado> abogadosConsultados = new ArrayList<Abogado>();
-    // Consulto la cantidad total de abogados para iterar la cantidad total en un for
-    for(int i = 0; i< ListAbog.size();i++){
-    // ListAbog.get(i) = traer el objeto iterado de la lista general -- pido el fuero de ese abogado -- Lo comparo con el fuero ingresado
-    if(ListAbog.get(i).getFuero().equals(fuero)){
-    // Agrega el abogado iterado a la lista de abogados consultados
-    abogadosConsultados.add(ListAbog.get(i));
-    }
-    }
-    // Inicializo la posicion donde encuentro al abogado, el maximo de causas que pueden tener y el abogado iterado
-    int posicion = 0;
-    int maxCausas = 100;
-    Abogado abogadoX;
-    // Consulto la cantidad de abogados de la nueva coleccion para iterarlos
-    for(int i = 0; i < abogadosConsultados.size();i++){
-    // si el objeto iterado (lo de get(i)) tiene una cantidad de causas abiertas mayor 
-    if(abogadosConsultados.get(i).getCantAbiertas()<maxCausas){
-    // asigno a maxCausas, la cantidad de causas del abogado iterado
-    maxCausas = abogadosConsultados.get(i).getCantAbiertas();
-    // asigno la posicion a i para que se guarde en algun indice en la lista de abogados
-    posicion = i;
-    }
-    }
-    // asigno la posicion (lo del if de arriba) a un "abogadoX" para que se guarde momentaneamente y los pueda comparar
-    abogadoX = abogadosConsultados.get(posicion);
-    String abogadoXNombre = abogadoX.getApellidoNombre();
-    String abogadoXFuero = abogadoX.getFuero();
-    
-    JOptionPane.showMessageDialog(null,"Abogado seleccionado para la causa: "+abogadoXNombre+"\n Fuero: "+abogadoXFuero);
-    */
     };
     
     
