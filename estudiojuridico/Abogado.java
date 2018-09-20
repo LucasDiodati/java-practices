@@ -4,9 +4,9 @@ public class Abogado {
     private int codAbogado;
     private String apellidoNombre;
     private String tipoDocumento;
-    private int nroDocumento;
+    private String nroDocumento;
     private String Domicilio;
-    private int telefono;
+    private String telefono;
     private String email;
     private String fuero;
     private ArrayList<Causa> causasAbogado = new ArrayList<Causa>();
@@ -37,11 +37,11 @@ public class Abogado {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public int getNroDocumento() {
+    public String getNroDocumento() {
         return nroDocumento;
     }
 
-    public void setNroDocumento(int nroDocumento) {
+    public void setNroDocumento(String nroDocumento) {
         this.nroDocumento = nroDocumento;
     }
 
@@ -53,11 +53,11 @@ public class Abogado {
         this.Domicilio = Domicilio;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

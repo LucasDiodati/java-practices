@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 public class EstudioJuridico {
     // Pasa como variable de clase para darle visibilidad fuera del main
     static ArrayList<Abogado>  ListAbog;
+    static ArrayList<Causa> ListCausasGeneral;
 
     public static void main(String[] args) {
         // Causas[];
@@ -69,7 +70,7 @@ public class EstudioJuridico {
         causa6.setSent(null); 
         
         //Agrego las causas al arraylist de causas general
-        ArrayList<Causa> ListCausasGeneral = new ArrayList<Causa>();
+        ListCausasGeneral = new ArrayList<Causa>();
         ListCausasGeneral.add(causa1);
         ListCausasGeneral.add(causa2);
         ListCausasGeneral.add(causa3);
@@ -102,7 +103,7 @@ public class EstudioJuridico {
         abogado1.setDomicilio("Salta 1515");
         abogado1.setEmail("juanperez666765@hotmail.com");
         abogado1.setTipoDocumento("DNI");
-        abogado1.setNroDocumento(31072565);
+        abogado1.setNroDocumento("31072565");
         abogado1.setTotalCausas(1);
         abogado1.setCausasAbogado(ListCausaAbog1);
         //Abogado2
@@ -114,7 +115,7 @@ public class EstudioJuridico {
         abogado2.setCausasAbogado(ListCausaAbog2);
         abogado2.setDomicilio("Andrade 1201");
         abogado2.setEmail("luisr@gmail.com");
-        abogado2.setNroDocumento(33070334);
+        abogado2.setNroDocumento("33070334");
         abogado2.setTipoDocumento("DNI");
         abogado2.setTotalCausas(2);
         //Abogado3
@@ -126,7 +127,7 @@ public class EstudioJuridico {
         abogado3.setCausasAbogado(ListCausaAbog3);
         abogado3.setDomicilio("Entre rios 1444");
         abogado3.setEmail("agusr@yahoo.com");
-        abogado3.setNroDocumento(36887523);
+        abogado3.setNroDocumento("36887523");
         abogado3.setTipoDocumento("DNI");
         abogado3.setTotalCausas(2);
         //Abogado4
@@ -138,7 +139,7 @@ public class EstudioJuridico {
         abogado4.setCausasAbogado(ListCausaAbog4); // asignar a su propia lista
         abogado4.setDomicilio("San Luis 55");
         abogado4.setEmail("mjuarezabogado@estudio.com");
-        abogado4.setNroDocumento(12088743);
+        abogado4.setNroDocumento("12088743");
         abogado4.setTipoDocumento("LC");
         abogado4.setTotalCausas(1);        
         
@@ -168,10 +169,10 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
             abrirCausa();
             break;
             case 2:
-            // cargarAbogado();
+            cargarAbogado();
             break;
             case 3:
-            // cerrarCausa();
+            cerrarCausa();
             break;
             case 4:
             // liquidarAbogados();
@@ -222,5 +223,141 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
     asig.getCausasAbogado().add(caus1);
     };
     
+    public static void cargarAbogado(){
+  
+    String tipo = JOptionPane.showInputDialog("Ingrese *f* si el abogado cobra monto fijo \n Ingrese *p* si cobra un porcentaje de la causa");
+
+    switch(tipo){
+    case"f":
+    // instanciar el abogado como fijo
+    Fijo abogF = new Fijo();
     
+    int codigo =  Integer.parseInt(JOptionPane.showInputDialog("Ingrese el codigo de abogado: "));
+    abogF.setCodAbogado(codigo);
+    
+    String apellidoNombre = JOptionPane.showInputDialog("Ingrese el nombre y apellido del abogado: ");
+    abogF.setApellidoNombre(apellidoNombre);
+    
+    String tipoDocumento = JOptionPane.showInputDialog("Ingrese el tipo de documento(DNI/LC/LE): ");
+    abogF.setTipoDocumento(tipoDocumento);
+    
+    String nroDocumento = JOptionPane.showInputDialog("Ingrese el numero de documento: ");
+    abogF.setNroDocumento(nroDocumento);
+    
+    String Domicilio = JOptionPane.showInputDialog("Ingrese el domicilio: ");
+    abogF.setDomicilio(Domicilio);
+    
+    String telefono = JOptionPane.showInputDialog("Ingrese el telefono sin el 0 o 15: ");
+    abogF.setTelefono(telefono);
+    
+    String email = JOptionPane.showInputDialog("Ingrese el email: ");
+    abogF.setEmail(email);
+    
+    String fuero = JOptionPane.showInputDialog("Ingrese el fuero del abogado: ");
+    abogF.setFuero(fuero);
+
+    // Lo agrego al arrayList<>
+    ListAbog.add(abogF);
+
+    JOptionPane.showMessageDialog(null, "El abogado ingresado: \n "
+            + "\n*Codigo: "+abogF.getCodAbogado()
+            +"\n*Nombre: "+abogF.getApellidoNombre()
+            +"\n*Documento "+abogF.getTipoDocumento()+" Nº: "+abogF.getNroDocumento()
+            +"\n*Domicilio : "+abogF.getDomicilio()
+            +"\n*Telefono: "+abogF.getTelefono()
+            +"\n*Email: "+abogF.getEmail()
+            +"\n*Fuero: "+abogF.getFuero());
+    
+    break;
+    case "p":
+    // instanciar el abogado como porcentaje
+    Porcentaje abogP = new Porcentaje();
+    
+    int codigop =  Integer.parseInt(JOptionPane.showInputDialog("Ingrese el codigo de abogado: "));
+    abogP.setCodAbogado(codigop);
+    
+    String apellidoNombrep = JOptionPane.showInputDialog("Ingrese el nombre y apellido del abogado: ");
+    abogP.setApellidoNombre(apellidoNombrep);
+    
+    String tipoDocumentop = JOptionPane.showInputDialog("Ingrese el tipo de documento(DNI/LC/LE): ");
+    abogP.setTipoDocumento(tipoDocumentop);
+    
+    String nroDocumentop = JOptionPane.showInputDialog("Ingrese el numero de documento: ");
+    abogP.setNroDocumento(nroDocumentop);
+    
+    String Domiciliop = JOptionPane.showInputDialog("Ingrese el domicilio: ");
+    abogP.setDomicilio(Domiciliop);
+    
+    String telefonop = JOptionPane.showInputDialog("Ingrese el telefono sin el 0 o 15: ");
+    abogP.setTelefono(telefonop);
+    
+    String emailp = JOptionPane.showInputDialog("Ingrese el email: ");
+    abogP.setEmail(emailp);
+    
+    String fuerop = JOptionPane.showInputDialog("Ingrese el fuero del abogado: ");
+    abogP.setFuero(fuerop);
+    
+    // Lo agrego al arrayList<>
+    ListAbog.add(abogP);
+    
+    JOptionPane.showMessageDialog(null, "El abogado ingresado: \n "
+            + "\n*Codigo: "+abogP.getCodAbogado()
+            +"\n*Nombre: "+abogP.getApellidoNombre()
+            +"\n*Documento "+abogP.getTipoDocumento()+" Nº: "+abogP.getNroDocumento()
+            +"\n*Domicilio : "+abogP.getDomicilio()
+            +"\n*Telefono: "+abogP.getTelefono()
+            +"\n*Email: "+abogP.getEmail()
+            +"\n*Fuero: "+abogP.getFuero());
+    
+
+    break;
+    default: 
+    JOptionPane.showMessageDialog(null, "El tipo ingresado es incorrecto");    
+    break;
+    }
+    
+    }
+    
+    public static void cerrarCausa(){
+        // Esto es solo para mostrar las causas
+        JOptionPane.showMessageDialog(null, "Seleccione el numero de la causa que quiera cerrar a continuacion: ");
+        for(int i=0;i<ListCausasGeneral.size();i++){
+        JOptionPane.showMessageDialog(null, ">"+ListCausasGeneral.get(i).getNroCausa()+"<  CAUSA: "+ListCausasGeneral.get(i).getFuero()+" "+ListCausasGeneral.get(i).getFechaIni()+" "+ListCausasGeneral.get(i).getDemandante()+" contra "+ListCausasGeneral.get(i).getDemandado()+" sobre "+ListCausasGeneral.get(i).getMotivo()+" en juzgado "+ListCausasGeneral.get(i).getJuzgado());    
+        
+        }
+        // Ingreso de numero de causa
+        int numeroCausa = Integer.parseInt(JOptionPane.showInputDialog(""));
+        for(int i=0;i<ListCausasGeneral.size();i++){
+        if(ListCausasGeneral.get(i).getNroCausa() == numeroCausa){
+            // Cargo una nueva sentencia
+            Sentencia sentencia1 = new Sentencia();
+            String fechaSentencia = JOptionPane.showInputDialog("Ingrese la fecha de sentencia: ");
+            sentencia1.setFechaSentencia(fechaSentencia);
+            
+            String tipoSentencia = JOptionPane.showInputDialog("Ingrese el tipo de sentencia: (pos para positivo y neg para negativo) ");
+            sentencia1.setTipoSentencia(tipoSentencia);
+            
+            String motivoSentencia = JOptionPane.showInputDialog("Ingrese el motivo: ");
+            sentencia1.setMotivo(motivoSentencia);
+            
+            double montoSentencia = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el monto de la sentencia: "));
+            // Agrego la sentencia a la causa
+            ListCausasGeneral.get(i).setSent(sentencia1);
+            }
+        }
+        // Todo esto para eliminarle la causa al abogado
+        for(int i=0;i<ListAbog.size();i++){
+        for(int e=0; e<ListAbog.get(i).getCausasAbogado().size();e++){
+        if(ListAbog.get(i).getCausasAbogado().get(e).getNroCausa() == numeroCausa){
+        // Le quito la causa del arrayList de causas 
+        ListAbog.get(i).getCausasAbogado().remove(e);
+        // Le quito uno a la cantidad de causas abiertas
+        int totalAbiertas = ListAbog.get(i).getCantAbiertas();
+        ListAbog.get(i).setCantAbiertas(totalAbiertas - 1);
+        }
+        }
+        }
+
+    }
+
 }
