@@ -8,67 +8,18 @@ public class EstudioJuridico {
     static ArrayList<Causa> ListCausasGeneral;
 
     public static void main(String[] args) {
-        // Causas[];
-        Causa causa1 = new Causa();
-        causa1.setNroCausa(15);
-        causa1.setDemandado("Lopez");
-        causa1.setDemandante("Planes");
-        causa1.setFechaIni("13/07/2018");
-        causa1.setJuzgado("Federal 1ero");
-        causa1.setMotivo("Accidente de transito");
-        causa1.setFuero("Civil");
-        causa1.setSent(null);
-        //causa2
-        Causa causa2 = new Causa();
-        causa2.setNroCausa(14);
-        causa2.setDemandado("Belgrano");
-        causa2.setDemandante("San Martin");
-        causa2.setFechaIni("11/05/2018");
-        causa2.setJuzgado("Provincial 15ero");
-        causa2.setMotivo("Despidos");
-        causa2.setFuero("Penal");
-        causa2.setSent(null);
-        //causa3
-        Causa causa3 = new Causa();
-        causa3.setNroCausa(11);
-        causa3.setDemandado("Sarmiento");
-        causa3.setDemandante("Rosas");
-        causa3.setFechaIni("11/05/2015");
-        causa3.setJuzgado("Provincial 15ero");
-        causa3.setMotivo("Pago de haberes");
-        causa3.setFuero("Civil");
-        causa3.setSent(null);
-        //causa4
-        Causa causa4 = new Causa();
-        causa4.setNroCausa(5);
-        causa4.setDemandado("Sanchez");
-        causa4.setDemandante("San Martin");
-        causa4.setFechaIni("07/05/2018");
-        causa4.setJuzgado("Provincial 15ero");
-        causa4.setMotivo("Divorcio");
-        causa1.setFuero("Laboral");
-        causa4.setSent(null);
-        //causa5
-        Causa causa5 = new Causa();
-        causa5.setNroCausa(77);
-        causa5.setDemandado("Paz");
-        causa5.setDemandante("Fernandez");
-        causa5.setFechaIni("11/05/2017");
-        causa5.setJuzgado("Federal 1ero");
-        causa1.setFuero("Penal");
-        causa5.setMotivo("Estafa");
-        causa5.setSent(null);
-        //causa6
-        Causa causa6 = new Causa();
-        causa6.setNroCausa(56);
-        causa6.setDemandado("Rey");
-        causa6.setDemandante("Poe");
-        causa6.setFechaIni("14/02/2018");
-        causa6.setJuzgado("Provincial 15ero");
-        causa1.setFuero("Civil");
-        causa6.setMotivo("Responsabilidad parental");
-        causa6.setSent(null); 
         
+        Porcentaje abogado1 = new Porcentaje();
+        Fijo abogado2 = new Fijo();
+        Porcentaje abogado3 = new Porcentaje();
+        Fijo abogado4 = new Fijo();
+        Causa causa1 = new Causa();
+        Causa causa2 = new Causa();
+        Causa causa3 = new Causa();
+        Causa causa4 = new Causa();
+        Causa causa5 = new Causa();
+        Causa causa6 = new Causa();
+
         //Agrego las causas al arraylist de causas general
         ListCausasGeneral = new ArrayList<Causa>();
         ListCausasGeneral.add(causa1);
@@ -93,9 +44,76 @@ public class EstudioJuridico {
         ArrayList<Causa> ListCausaAbog4 = new ArrayList<Causa>();
         ListCausaAbog4.add(causa6);    
         
+        //Instancio un objeto de la clase ArrayList<> donde meto todos los objetos "Abogado"
+        ListAbog = new ArrayList<Abogado>();
+        //Agrego los objetos "Abogado" al arrayList
+        ListAbog.add(abogado1);
+        ListAbog.add(abogado2);
+        ListAbog.add(abogado3);
+        ListAbog.add(abogado4);
         
-        // Instancio un par de abogados directamente en la subclase
-        Abogado abogado1 = new Fijo();
+        //causa1
+        causa1.setNroCausa(15);
+        causa1.setDemandado("Lopez");
+        causa1.setDemandante("Planes");
+        causa1.setFechaIni("13/07/2018");
+        causa1.setJuzgado("Federal 1ero");
+        causa1.setMotivo("Accidente de transito");
+        causa1.setFuero("Civil");
+        causa1.setAbogCausa(abogado4);
+        causa1.setSent(null);
+        //causa2
+        causa2.setNroCausa(14);
+        causa2.setDemandado("Belgrano");
+        causa2.setDemandante("San Martin");
+        causa2.setFechaIni("11/05/2018");
+        causa2.setJuzgado("Provincial 15ero");
+        causa2.setMotivo("Despidos");
+        causa2.setFuero("Penal");
+        causa2.setAbogCausa(abogado1);
+        causa2.setSent(null);
+        //causa3
+        causa3.setNroCausa(11);
+        causa3.setDemandado("Sarmiento");
+        causa3.setDemandante("Rosas");
+        causa3.setFechaIni("11/05/2015");
+        causa3.setJuzgado("Provincial 15ero");
+        causa3.setMotivo("Pago de haberes");
+        causa3.setFuero("Civil");
+        causa3.setAbogCausa(abogado2);
+        causa3.setSent(null);
+        //causa4
+        causa4.setNroCausa(5);
+        causa4.setDemandado("Sanchez");
+        causa4.setDemandante("San Martin");
+        causa4.setFechaIni("07/05/2018");
+        causa4.setJuzgado("Provincial 15ero");
+        causa4.setMotivo("Divorcio");
+        causa4.setFuero("Laboral");
+        causa4.setAbogCausa(abogado3);
+        causa4.setSent(null);
+        //causa5
+        causa5.setNroCausa(77);
+        causa5.setDemandado("Paz");
+        causa5.setDemandante("Fernandez");
+        causa5.setFechaIni("11/05/2017");
+        causa5.setJuzgado("Federal 1ero");
+        causa5.setFuero("Penal");
+        causa5.setMotivo("Estafa");
+        causa5.setAbogCausa(abogado3);
+        causa5.setSent(null);
+        //causa6
+        causa6.setNroCausa(56);
+        causa6.setDemandado("Rey");
+        causa6.setDemandante("Poe");
+        causa6.setFechaIni("14/02/2018");
+        causa6.setJuzgado("Provincial 15ero");
+        causa6.setFuero("Civil");
+        causa6.setMotivo("Responsabilidad parental");
+        causa6.setAbogCausa(abogado2);
+        causa6.setSent(null); 
+
+        // Abogado1
         abogado1.setCodAbogado(7122);
         abogado1.setCantAbiertas(1);
         abogado1.setFuero("Laboral");
@@ -105,9 +123,9 @@ public class EstudioJuridico {
         abogado1.setTipoDocumento("DNI");
         abogado1.setNroDocumento("31072565");
         abogado1.setTotalCausas(1);
+        abogado1.setPorc(1.5);
         abogado1.setCausasAbogado(ListCausaAbog1);
         //Abogado2
-        Abogado abogado2 = new Porcentaje();
         abogado2.setCodAbogado(45);
         abogado2.setCantAbiertas(2);
         abogado2.setFuero("Penal");
@@ -117,9 +135,9 @@ public class EstudioJuridico {
         abogado2.setEmail("luisr@gmail.com");
         abogado2.setNroDocumento("33070334");
         abogado2.setTipoDocumento("DNI");
+        abogado2.setMonto(150);
         abogado2.setTotalCausas(2);
         //Abogado3
-        Abogado abogado3 = new Porcentaje();
         abogado3.setCodAbogado(12);
         abogado3.setCantAbiertas(2);
         abogado3.setFuero("Civil");
@@ -129,9 +147,9 @@ public class EstudioJuridico {
         abogado3.setEmail("agusr@yahoo.com");
         abogado3.setNroDocumento("36887523");
         abogado3.setTipoDocumento("DNI");
+        abogado3.setPorc(1.3);
         abogado3.setTotalCausas(2);
         //Abogado4
-        Abogado abogado4 = new Fijo();
         abogado4.setCodAbogado(43);
         abogado4.setCantAbiertas(1);
         abogado4.setFuero("Civil");
@@ -141,18 +159,11 @@ public class EstudioJuridico {
         abogado4.setEmail("mjuarezabogado@estudio.com");
         abogado4.setNroDocumento("12088743");
         abogado4.setTipoDocumento("LC");
+        abogado4.setMonto(180);
         abogado4.setTotalCausas(1);        
         
-        //Instancio un objeto de la clase ArrayList<> donde meto todos los objetos "Abogado"
-        ListAbog = new ArrayList<Abogado>();
-        //Agrego los objetos "Abogado" al arrayList
-        ListAbog.add(abogado1);
-        ListAbog.add(abogado2);
-        ListAbog.add(abogado3);
-        ListAbog.add(abogado4);
-        
-        
-        
+
+
         //Inicializo el valor de ingreso fuera del bucle
         int num1;       
         JOptionPane.showMessageDialog(null,">> Bienvenido al sistema de Estudio Juridico <<");
@@ -175,7 +186,7 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
             cerrarCausa();
             break;
             case 4:
-            // liquidarAbogados();
+            liquidarHaberes();
             break;
         }
             }while(num1 != 0);
@@ -221,6 +232,8 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
     Abogado asig = buscarAbogado(caus1.getFuero());// asig es el abogado con menos causas
     // Le cargo la causa a la lista de causas del este abogado
     asig.getCausasAbogado().add(caus1);
+    // Seteo el abogado en la causa
+    caus1.setAbogCausa(asig);
     };
     
     public static void cargarAbogado(){
@@ -322,7 +335,14 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
         // Esto es solo para mostrar las causas
         JOptionPane.showMessageDialog(null, "Seleccione el numero de la causa que quiera cerrar a continuacion: ");
         for(int i=0;i<ListCausasGeneral.size();i++){
-        JOptionPane.showMessageDialog(null, ">"+ListCausasGeneral.get(i).getNroCausa()+"<  CAUSA: "+ListCausasGeneral.get(i).getFuero()+" "+ListCausasGeneral.get(i).getFechaIni()+" "+ListCausasGeneral.get(i).getDemandante()+" contra "+ListCausasGeneral.get(i).getDemandado()+" sobre "+ListCausasGeneral.get(i).getMotivo()+" en juzgado "+ListCausasGeneral.get(i).getJuzgado());    
+        JOptionPane.showMessageDialog(null, ">"+ListCausasGeneral.get(i).getNroCausa()
+                +"<  CAUSA: "
+                +ListCausasGeneral.get(i).getFuero()+" "
+                +ListCausasGeneral.get(i).getFechaIni()+" "
+                +ListCausasGeneral.get(i).getDemandante()+" contra "
+                +ListCausasGeneral.get(i).getDemandado()+" sobre "
+                +ListCausasGeneral.get(i).getMotivo()+" en juzgado "
+                +ListCausasGeneral.get(i).getJuzgado());    
         
         }
         // Ingreso de numero de causa
@@ -341,11 +361,13 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
             sentencia1.setMotivo(motivoSentencia);
             
             double montoSentencia = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el monto de la sentencia: "));
+            sentencia1.setMonto(montoSentencia);
             // Agrego la sentencia a la causa
             ListCausasGeneral.get(i).setSent(sentencia1);
             }
+        //Me falta removerlo de la lista de causas generals//ListCausasGeneral.get(i)
         }
-        // Todo esto para eliminarle la causa al abogado
+        // Esto para eliminarle la causa al abogado
         for(int i=0;i<ListAbog.size();i++){
         for(int e=0; e<ListAbog.get(i).getCausasAbogado().size();e++){
         if(ListAbog.get(i).getCausasAbogado().get(e).getNroCausa() == numeroCausa){
@@ -359,5 +381,36 @@ String entrada = JOptionPane.showInputDialog("*Ingrese 1 si quiere abrir una cau
         }
 
     }
-
+    
+        public static void liquidarHaberes(){
+        String var = JOptionPane.showInputDialog("ingrese el codigo de abogado: ");
+        Abogado abog = null;
+        int nro = Integer.parseInt(var);
+        for(int i=0;i<ListAbog.size();i++){
+            if(ListAbog.get(i).getCodAbogado()==nro){
+                abog = ListAbog.get(i);
+            }
+        }
+        // Creo una Lista de causas provisoria
+        ArrayList<Causa> ListaProv = new ArrayList<Causa>();
+        // Itero en la lista general de causas
+        for(int i=0;i<ListCausasGeneral.size();i++){
+        // busco las causas que tengan el abogado a liquidar
+        if(ListCausasGeneral.get(i).getAbogCausa() == abog){
+        // busco las causas que tengan sentencia
+        if(ListCausasGeneral.get(i).getSent() != null){
+        // selecciono solamente las sentencias positivas
+        if(ListCausasGeneral.get(i).getSent().getTipoSentencia().equals("pos")){
+        // Agrego la causa a la lista provisoria
+        ListaProv.add(ListCausasGeneral.get(i));
+                    }
+                }
+            }
+        }
+        double total  = 0;
+        for (int i=0;i<ListaProv.size();i++){
+        total = ListaProv.get(i).getSent().getMonto() + total;
+        }
+        abog.liquidar(ListaProv);
+    }
 }

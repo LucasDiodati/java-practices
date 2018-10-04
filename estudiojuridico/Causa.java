@@ -8,6 +8,7 @@ public class Causa {
    private String motivo;
    private String fuero;   
    private int nroCausa;
+   private Abogado abogCausa;
 
 public Sentencia getSent() {
         return sent;
@@ -77,5 +78,19 @@ public Sentencia getSent() {
      */
     public void setFuero(String fuero) {
         this.fuero = fuero;
+    }
+
+    /**
+     * @return the abogCausa
+     */
+    public Abogado getAbogCausa() {
+        return abogCausa;
+    }
+
+    /**
+     * @param abogCausa the abogCausa to set
+     */
+    public void setAbogCausa(Abogado abogCausa) {
+        this.abogCausa = abogCausa;
     }
 }

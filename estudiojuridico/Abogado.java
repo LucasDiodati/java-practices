@@ -99,5 +99,11 @@ public class Abogado {
 
     public void setCausasAbogado(ArrayList<Causa> causasAbogado) {
         this.causasAbogado = causasAbogado;
-    }  
+    }
+    
+    public String liquidar(ArrayList<Causa> causasLiq){
+        return "el abogado es:"; 
+    }
+
+    
 }
